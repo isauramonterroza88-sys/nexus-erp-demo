@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: nexus-erp-core
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/sistema/salud
+    envVars:
+      - key: JWT_SECRET
+        generateValue: true
+      - key: NEXUS_DEMO
+        value: "true"

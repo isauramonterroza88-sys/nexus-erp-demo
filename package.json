@@ -1,0 +1,27 @@
+{
+  "name": "nexus-erp-feria",
+  "version": "2.0.0",
+  "description": "NEXUS ERP CORE: ERP/CRM modular multi-empresa con módulos bajo demanda, JWT y control de acceso por roles",
+  "main": "server.js",
+  "license": "UNLICENSED",
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "build": "npm --prefix client install && npm --prefix client run build",
+    "dev": "node --watch server.js",
+    "client": "npm --prefix client run dev",
+    "install:all": "npm install && npm --prefix client install",
+    "dev:all": "concurrently -n API,WEB -c cyan,magenta \"npm run dev\" \"npm run client\"",
+    "test": "node --test tests/nexus.test.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
